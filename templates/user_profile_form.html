@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User Profile</title>
+</head>
+<body>
+    <h2>Create User Profile</h2>
+    <form method="POST" action="{% url 'userprofile-list' %}">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="shopping_preferences">Shopping Preferences:</label>
+        <textarea id="shopping_preferences" name="shopping_preferences"></textarea>
+        <br>
+        <button type="submit">Create Profile</button>
+    </form>
+</body>
+</html>
