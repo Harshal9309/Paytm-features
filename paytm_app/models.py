@@ -5,16 +5,16 @@ class UserProfile(models.Model):
     username = models.CharField(max_length=50)
     shopping_preferences = models.TextField(null=True, blank=True)
 
+    def __str__(self):
+        return self.username
+
 class Investment(models.Model):
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     investment_type = models.CharField(max_length=50)
     timestamp = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return f"{self.user.username} - {self.investment_type}"
-
-
+    
 
 class ShoppingAssistant(models.Model):
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
